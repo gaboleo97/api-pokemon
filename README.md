@@ -1,1 +1,15 @@
 # api-pokemon
+
+#sql base
+CREATE TABLE cards (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+hp INT NOT NULL,
+first_edition BOOLEAN NOT NULL,
+expansion VARCHAR(50) NOT NULL,
+type VARCHAR(50) NOT NULL,
+rarity VARCHAR(50) NOT NULL,
+price DECIMAL(10, 2) NOT NULL,
+image_url VARCHAR(255) NOT NULL,
+creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

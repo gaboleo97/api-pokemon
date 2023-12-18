@@ -1,0 +1,141 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Cartas de Pokémon",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/cards": {
+      "get": {
+        "summary": "Obtener todas las cartas",
+        "responses": {
+          "200": {
+            "description": "Devuelve todas las cartas"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear una nueva carta",
+        "requestBody": {
+          "description": "Datos de la nueva carta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "hp": { "type": "integer" },
+                  "first_edition": { "type": "boolean" },
+                  "expansion": { "type": "string" },
+                  "type": { "type": "string" },
+                  "rarity": { "type": "string" },
+                  "price": { "type": "number" },
+                  "image_url": { "type": "string" }
+                },
+                "required": [
+                  "name",
+                  "hp",
+                  "expansion",
+                  "type",
+                  "rarity",
+                  "price",
+                  "image_url"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Carta creada"
+          }
+        }
+      }
+    },
+    "/cards/{id}": {
+      "get": {
+        "summary": "Obtener una carta específica",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve una carta específica"
+          }
+        }
+      },
+      "put": {
+        "summary": "Actualizar una carta por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Datos actualizados de la carta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "hp": { "type": "integer" },
+                  "first_edition": { "type": "boolean" },
+                  "expansion": { "type": "string" },
+                  "type": { "type": "string" },
+                  "rarity": { "type": "string" },
+                  "price": { "type": "number" },
+                  "image_url": { "type": "string" }
+                },
+                "required": [
+                  "name",
+                  "hp",
+                  "expansion",
+                  "type",
+                  "rarity",
+                  "price",
+                  "image_url"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Carta actualizada"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Borrar una carta por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carta borrada"
+          }
+        }
+      }
+    }
+  }
+}
